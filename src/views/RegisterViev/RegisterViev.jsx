@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
 import { Container, Typography } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
+import { Grid, ButtonGroup } from '@material-ui/core';
+
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 import { useForm, Form } from '../../components/useForm';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -85,11 +88,19 @@ export default function RegisterViev() {
             />
           </Grid>
           <Grid item xs={6}>
-            <Button
-              type="submit"
-              text={!isLoading ? 'Register' : 'Loading...'}
-            />
-            <Button text="Reset" color="default" onClick={resetForm} />
+            <ButtonGroup size="large" variant="contained" color="primary">
+              <Button
+                startIcon={<NoteAddIcon />}
+                type="submit"
+                text={!isLoading ? 'Register' : 'Loading...'}
+              />
+              <Button
+                endIcon={<BackspaceIcon />}
+                text="Reset"
+                color="default"
+                onClick={resetForm}
+              />
+            </ButtonGroup>
           </Grid>
         </Grid>
       </Form>

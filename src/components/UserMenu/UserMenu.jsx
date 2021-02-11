@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Button from '../../components/Button';
 import s from './UserMenu.module.css';
 
@@ -7,6 +8,7 @@ export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
   const email = useSelector(authSelectors.getUserEmail);
+  const isLoading = useSelector(authSelectors.getIsLoading);
 
   return (
     <div className={s.container}>
@@ -14,8 +16,9 @@ export default function UserMenu() {
         Welcome, {name} ({email})
       </span>
       <Button
+        endIcon={<PowerSettingsNewIcon />}
         type="button"
-        text="Loguot"
+        text={isLoading ? 'Loading...' : 'Logout'}
         onClick={() => dispatch(authOperations.logOut())}
       >
         Logout

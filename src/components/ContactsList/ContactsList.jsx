@@ -10,7 +10,7 @@ import {
   TableCell,
   Paper,
 } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import useTable from '../useTable';
 import ActionButton from '../ActionButon';
@@ -61,7 +61,7 @@ export default function ContactsList() {
               <TableCell>{item.number}</TableCell>
               <TableCell>
                 <ActionButton
-                  color="secondary"
+                  color="primary"
                   onClick={() => {
                     setConfirmDialog({
                       isOpen: true,
@@ -73,7 +73,7 @@ export default function ContactsList() {
                     });
                   }}
                 >
-                  <CloseIcon fontSize="small" />
+                  <DeleteIcon fontSize="small" />
                 </ActionButton>
               </TableCell>
             </TableRow>

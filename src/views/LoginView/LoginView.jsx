@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
-import { Container, Typography } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
+import { Grid, Container, Typography } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useForm, Form } from '../../components/useForm';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -68,7 +68,11 @@ export default function LoginView() {
             />
           </Grid>
           <Grid item xs={6}>
-            <Button type="submit" text={isLoading ? 'Loading...' : 'Login'} />
+            <Button
+              startIcon={<ExitToAppIcon />}
+              type="submit"
+              text={isLoading ? 'Loading...' : 'Login'}
+            />
           </Grid>
         </Grid>
       </Form>

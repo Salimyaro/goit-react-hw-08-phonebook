@@ -5,6 +5,7 @@ import { useForm, Form } from '../useForm';
 
 import Input from '../Input';
 import Button from '../Button';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const initialFValues = {
   name: '',
@@ -56,7 +57,7 @@ export default function ContactForm() {
         onChange={handleInputChange}
         error={errors.number}
       />
-      <Button type="submit" text="Add contact" />
+      <Button startIcon={<AddBoxIcon />} type="submit" text="Add contact" />
     </Form>
   );
 }
